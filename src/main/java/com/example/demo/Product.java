@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.hateoas.RepresentationModel;
+
 @Entity
-public class Product {
+public class Product extends RepresentationModel<Product> {
 
 	private @Id @GeneratedValue final long id;
 	private final String name;
@@ -23,6 +25,11 @@ public class Product {
 	
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.id, this.name);
 	}
 
 	  @Override
