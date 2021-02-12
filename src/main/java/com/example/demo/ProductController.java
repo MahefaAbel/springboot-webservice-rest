@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+//import org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
 @RequestMapping(value = "/product")
@@ -21,36 +21,31 @@ public class ProductController {
 		return "ProductController";
 	}
 	
-	@GetMapping("/{id}")
-	public EntityModel<Product> getProduct(
-			@RequestParam(value = "id", defaultValue = "3") String id
-	) {
-		Product produit = new Product(counter.incrementAndGet(), String.format(template, id));
-		return EntityModel.of(produit,
-		      linkTo(( methodOn(ProductController.class)).one(id)).withSelfRel(),
-		      linkTo(( methodOn(ProductController.class)).all()).withRel("employees")
-		);
-	}
+//	@GetMapping("/{id}")
+//	public EntityModel<Product> getProduct(
+//			@RequestParam(value = "id", defaultValue = "3") String id
+//	) {
+//		Product produit = new Product(counter.incrementAndGet(), String.format(template, id));
+//		return EntityModel.of(produit,
+//		      linkTo(( methodOn(ProductController.class)).one(id)).withSelfRel(),
+//		      linkTo(( methodOn(ProductController.class)).all()).withRel("employees")
+//		);
+//	}
+	
+
+//	@GetMapping("/{id}")
+//	public Product getProduct(
+//			@RequestParam(value = "id", defaultValue = "3") String id
+//	) {
+//		Product produit = new Product(counter.incrementAndGet(), String.format(template, id));
+//		return produit;
+//	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	private Object methodOn(Class<ProductController> class1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	
+//	private Object methodOn(Class<ProductController> class1) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }
